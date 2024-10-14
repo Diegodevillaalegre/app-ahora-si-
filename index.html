@@ -325,6 +325,32 @@
         }
 var usuarioActual = null;
 var claveActual = '1234';
+	    <!-- Botón "Agregar Activos" -->
+<button id="agregar-activos-btn" onclick="mostrarVentanaAgregarActivos()">Agregar Activos</button>
+
+<!-- Ventana de Gestión de Activos -->
+<div id="ventana-activos" style="display: none;">
+    <div id="ventana-contenido">
+        <h3>Gestión de Activos</h3>
+        <form id="formulario-activos">
+            <input type="hidden" id="activo-id">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required><br>
+            <label for="coordenadas">Coordenadas (Latitud, Longitud):</label>
+            <input type="text" id="coordenadas" required><br>
+            <label for="actividad1">Actividad 1:</label>
+            <input type="text" id="actividad1"><br>
+            <label for="actividad2">Actividad 2:</label>
+            <input type="text" id="actividad2"><br>
+            <label for="actividad3">Actividad 3:</label>
+            <input type="text" id="actividad3"><br>
+            <button type="button" onclick="guardarActivo()">Guardar Activo</button>
+            <button type="button" onclick="ocultarVentana()">Cerrar</button>
+        </form>
+        <h4>Activos Actuales</h4>
+        <div id="lista-activos"></div>
+    </div>
+</div>
 
 function mostrarVentanaAgregarActivos() {
     if (!usuarioActual) {
@@ -341,6 +367,7 @@ function mostrarVentanaAgregarActivos() {
         mostrarVentana();
     }
 }
+
 
 function mostrarVentana() {
     document.getElementById('ventana-activos').style.display = 'block';
